@@ -451,7 +451,7 @@ public class JFQuanly extends javax.swing.JFrame {
     private void txtSearchSdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchSdtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchSdtActionPerformed
-// hàm tìm kiếm 
+
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         String sdtToSearch = txtSearchSdt.getText();
