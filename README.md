@@ -6,7 +6,7 @@ Thành viên :
 + Lê Hoàng Hải (23010794)
 + Mai Đức Mạnh (23010814)
 
-link GitHub dự án demo : https://github.com/LeHoangHai0612/BaiTapLonNhom22.git
+link GitHub dự án : https://github.com/LeHoangHai0612/BaiTapLonNhom22.git
 
 1.Môi trường
   + Netbeans 23, JDK23
