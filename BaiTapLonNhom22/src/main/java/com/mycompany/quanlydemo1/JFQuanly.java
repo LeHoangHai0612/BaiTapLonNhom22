@@ -4,6 +4,7 @@ package com.mycompany.quanlydemo1;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -19,8 +20,8 @@ public class JFQuanly extends javax.swing.JFrame {
         initComponents();
         this.jPanel1.setBackground(Color.lightGray);
         list.add(new Quanly("Nguyễn Văn Tâm","111111", "09345678","vittel","5g","1 ngay",5000));
-        list.add(new Quanly("Mai Đức Mạnh","111111", "09345678","vittel","5g","1 ngay",5000));
-        list.add(new Quanly("Lê Hoàng Hải","111111", "09345678","vittel","5g","1 ngay",5000));
+        list.add(new Quanly("Mai Đức Mạnh","111111", "0934481737","vittel","5g","1 ngay",5000));
+        list.add(new Quanly("Lê Hoàng Hải","111111", "098765432","vittel","5g","1 ngay",5000));
         View();
         ViewTable();
         
@@ -76,7 +77,7 @@ public class JFQuanly extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearchSdt = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         btnHuy = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -110,9 +111,9 @@ public class JFQuanly extends javax.swing.JFrame {
 
         jLabel9.setText("NHẬP SĐT :");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtSearchSdt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtSearchSdtActionPerformed(evt);
             }
         });
 
@@ -140,7 +141,7 @@ public class JFQuanly extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSearchSdt, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(btnSearch)
                 .addGap(18, 18, 18)
@@ -154,7 +155,7 @@ public class JFQuanly extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchSdt, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
                     .addComponent(btnHuy))
                 .addContainerGap(26, Short.MAX_VALUE))
@@ -447,12 +448,34 @@ public class JFQuanly extends javax.swing.JFrame {
         ViewTable();
     }//GEN-LAST:event_btnDlActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtSearchSdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchSdtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtSearchSdtActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
+        String sdtToSearch = txtSearchSdt.getText();
+        boolean found = false;
+        for(Quanly q : list){
+            if(q.getSdt().equals(sdtToSearch)){
+                // gán giá trị 
+        this.txtHoten.setText(q.getHoten());
+        this.txtCccd.setText(q.getCccd());
+        this.txtSdt.setText(q.getSdt());
+        this.txtNhamang.setText(q.getNhamang());
+        this.txtGoi.setText(q.getGoi());
+        this.txtTime.setText(q.getTime());
+        this.txtGiacuoc.setText(String.valueOf(q.getGiacuoc()));
+        
+        found = true;
+        break;
+            
+        }
+       }
+        if(!found){
+            JOptionPane.showMessageDialog(this, "khong tim thay sdt"+sdtToSearch);
+        }
+            
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
@@ -515,7 +538,6 @@ public class JFQuanly extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblQuanly;
     private javax.swing.JTextField txtCccd;
     private javax.swing.JTextField txtGiacuoc;
@@ -523,6 +545,8 @@ public class JFQuanly extends javax.swing.JFrame {
     private javax.swing.JTextField txtHoten;
     private javax.swing.JTextField txtNhamang;
     private javax.swing.JTextField txtSdt;
+    private javax.swing.JTextField txtSearchSdt;
     private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }
+
